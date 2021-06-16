@@ -1,21 +1,8 @@
+import React from "react";
 import "antd/dist/antd.css";
-import React, { useState } from "react";
-import { Layout, Menu, Breadcrumb } from "antd";
 import "./SignUp.css";
 
-import {
-  Form,
-  Input,
-  Cascader,
-  Select,
-  Row,
-  Col,
-  Checkbox,
-  Button,
-  AutoComplete,
-  Card,
-} from "antd";
-const { Header, Content, Footer } = Layout;
+import { Form, Input, Select, Row, Col, Button, Card } from "antd";
 const { Option } = Select;
 
 const formItemLayout = {
@@ -36,20 +23,8 @@ const formItemLayout = {
     },
   },
 };
-const tailFormItemLayout = {
-  wrapperCol: {
-    xs: {
-      span: 24,
-      offset: 0,
-    },
-    sm: {
-      span: 16,
-      offset: 8,
-    },
-  },
-};
 function SignUp() {
-  const [form] = Form.useForm();
+  const { form } = Form.useForm();
 
   const onFinish = (values) => {
     console.log("Received values of form: ", values);
