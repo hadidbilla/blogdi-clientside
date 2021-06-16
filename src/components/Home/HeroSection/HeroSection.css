@@ -1,0 +1,35 @@
+.hero-section {
+  margin-top: 30px;
+}
+.left-part {
+  border-right: 1px solid lightgray;
+  margin-right: -17px;
+}
+.left-insideContent {
+  border-bottom: 1px solid lightgray;
+  margin-right: 20px;
+}
+.right-part {
+  margin-left: 20px;
+}
+.right-content {
+  padding-bottom: 30px;
+  border-bottom: 1px solid lightgray;
+  font-weight: 700px;
+  line-height: 24px;
+  margin-top: 30px;
+}
+.trends-text {
+  background-color: #d8361e;
+  display: inline-block;
+  padding: 5px 10px;
+  font-weight: bold;
+  color: white;
+}
+.bottom-content {
+  border-right: 1px solid lightgray;
+}
+.bottom {
+  margin-top: 10px;
+  margin-right: -18px;
+}

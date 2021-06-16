@@ -1,0 +1,12 @@
+.breaking {
+  background-color: #d8361e;
+  padding: 5px 10px;
+  display: inline-block;
+}
+.breaking a {
+  color: white;
+}
+.top-news {
+  border-bottom: 1px solid lightgray;
+  border-right: 1px solid lightgray;
+}
