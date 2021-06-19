@@ -7,9 +7,20 @@ import {
   faBookmark,
   faBell,
 } from "@fortawesome/free-solid-svg-icons";
+import { Avatar } from "antd";
+import { UserOutlined } from "@ant-design/icons";
 import Hadid from "../../../Images/hb.jpg";
-
+import { Popover } from "antd";
 const NavBar = () => {
+  const text = (
+    <span style={{ background: "black", color: "white" }}>Title</span>
+  );
+  const content = (
+    <div className="popHover">
+      <p>Content</p>
+      <p>Content</p>
+    </div>
+  );
   return (
     <header class="header">
       <h1 class="top-icon">
@@ -34,7 +45,7 @@ const NavBar = () => {
           </a>
         </li>
         <li>
-          <img
+          {/* <img
             style={{
               height: "40px",
               width: "50px",
@@ -43,7 +54,23 @@ const NavBar = () => {
             }}
             src={Hadid}
             alt=""
-          />
+          /> */}
+          <Popover
+            overlayClassName={"customerCSS"}
+            placement="bottom"
+            title={text}
+            content={content}
+            trigger="hover"
+            overlayStyle={{ borderColor: "black" }}
+          >
+            <button className="profile-btn">
+              <Avatar
+                style={{ background: "black" }}
+                size={33}
+                icon={<UserOutlined />}
+              />
+            </button>
+          </Popover>
         </li>
       </ul>
     </header>

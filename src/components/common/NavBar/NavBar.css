@@ -16,18 +16,18 @@ a {
   margin: 0;
   font-size: 1.45em;
 }
-.top-icon {
-  padding-top: 10px;
-}
+/* .top-icon {
+  
+} */
 .main-nav {
   margin-top: 5px;
 }
 .top-icon {
-  font-size: 35px;
+  font-size: 25px;
 }
 .logo a,
 .main-nav a {
-  padding: 5px 15px;
+  padding: 5px 20px;
   text-transform: uppercase;
   text-align: center;
   display: block;
@@ -48,7 +48,20 @@ a {
   padding-bottom: 0.5em;
   background-color: white;
 }
-
+.profile-btn {
+  border: 0px;
+  background: inherit;
+}
+.customerCSS .ant-popover-inner {
+  background-color: black;
+  border-radius: 10px;
+}
+.customerCSS
+  .ant-popover-arrow
+  .popover-arrow-outer-color
+  .ant-popover-arrow-content {
+  background-color: black;
+}
 /* ================================= 
   Media Queries
 ==================================== */

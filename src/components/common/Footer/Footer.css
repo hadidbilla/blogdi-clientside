@@ -1,0 +1,74 @@
+.main-footer {
+  color: white;
+  background-color: #000000;
+  padding-top: 3em;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  margin-top: 30px;
+  padding-left: 90px;
+}
+.footer-header {
+  color: #fff;
+  background-color: #000000;
+}
+.p {
+  list-style-type: none;
+  color: #fff;
+}
+
+.p > li > a {
+  color: #fff;
+}
+.p > li > a:link {
+  text-decoration: none;
+}
+.p > li > a:hover {
+  color: #fa7f04ec;
+}
+.q {
+  list-style-type: none;
+  color: #fff;
+  display: inline-flex;
+}
+.q > li {
+  padding: 10px;
+}
+.q > li > a {
+  color: #fff;
+}
+.q > li > a:link {
+  text-decoration: none;
+}
+.q > li > a:hover {
+  color: #fa7f04ec;
+}
+.r {
+  list-style-type: none;
+  color: #fff;
+  display: inline-flex;
+  float: right;
+}
+.r > li {
+  padding: 10px;
+}
+.r > li > a {
+  color: #fff;
+}
+.r > li > a:link {
+  text-decoration: none;
+}
+.q > li > a:hover {
+  color: #fa7f04ec;
+}
+.col {
+  padding: 10px 0;
+  margin: 10px;
+}
+.col > h4 {
+  padding: 10px 0;
+}
+.r > li > a:hover {
+  color: #fa7f04ec !important;
+  cursor: pointer !important;
+}
