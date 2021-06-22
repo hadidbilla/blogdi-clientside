@@ -1,0 +1,22 @@
+/* .ant-tabs-content-holder {
+  border-width: 1px;
+  border-color: grey;
+  border-style: solid;
+  padding: 1rem;
+  background: white;
+  position: relative;
+} */
+
+/* .ant-tabs-content-holder:after {
+  padding: 0;
+  margin: 0;
+  display: block;
+  content: "";
+  height: 1.1px;
+  position: absolute;
+  top: -1px;
+
+  left: 0%;
+  width: 24.8%;
+  background-color: white;
+} */
