@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Form, Input, Button, Checkbox } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import "./SignIn.css";
 import { Link } from "react-router-dom";
 function SignIn() {
-  const [signInUser, setSignInUser] = {};
+  const [signInUser, setSignInUser] = useState({});
   const onFinish = (values) => {
     console.log("Received values of form: ", values);
     const signInData = { ...values };
