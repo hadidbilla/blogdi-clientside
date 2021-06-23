@@ -5,6 +5,12 @@ const Contact = () => {
   const { Content } = Layout;
   const submitContactForm = function (values) {
     console.log("Submit contact form ", values);
+    const contactData = { ...values };
+    fetch("https://blogdi.pythonanywhere.com/api/blog/contacts/", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(contactData),
+    });
   };
   const layout = {
     labelCol: { span: 4 },

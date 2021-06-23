@@ -2,10 +2,35 @@ import React from "react";
 import { Form, Input, Button, Checkbox } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import "./SignIn.css";
-
+import { Link } from "react-router-dom";
 function SignIn() {
+  const [signInUser, setSignInUser] = {};
   const onFinish = (values) => {
     console.log("Received values of form: ", values);
+    const signInData = { ...values };
+    fetch("https://blogdi.pythonanywhere.com/doc/api/blog/login", {
+      method: "POST",
+      header: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(values),
+    })
+      .then((res) => res.json())
+      .then((signinData) => {
+        console.log(signinData);
+        setSignInUser(signinData);
+
+        // if (signinData.detail === undefined) {
+        //   cookies.set("currentUser", signinData, { path: "/" });
+        //   return (window.location.href = "/admin");
+        // } else {
+        //   // console.log("success", signupData);
+        //   message.error(signinData.detail);
+        // }
+      })
+      .catch(function (error) {
+        // console.log("error", error);
+      });
   };
   return (
     <div className="signin-from">
@@ -51,10 +76,9 @@ function SignIn() {
             <Form.Item name="remember" valuePropName="checked" noStyle>
               <Checkbox style={{ color: "white" }}>Remember me</Checkbox>
             </Form.Item>
-
-            <a className="login-form-forgot" href="">
+            <Link className="login-form-forgot" to="/reset-password">
               Forgot password
-            </a>
+            </Link>
           </Form.Item>
 
           <Form.Item>
@@ -67,9 +91,9 @@ function SignIn() {
               Log in
             </Button>
             <span style={{ color: "white" }}>Or </span>
-            <a style={{ marginRight: "5px" }} href="">
+            <Link style={{ marginRight: "5px" }} to="/signup">
               register now!
-            </a>
+            </Link>
           </Form.Item>
         </Form>
       </div>

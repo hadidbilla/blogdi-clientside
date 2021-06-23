@@ -1,5 +1,6 @@
 import React from "react";
 import { Row, Col } from "antd";
+import { Link } from "react-router-dom";
 import "./HeroSection.css";
 import Jeo from "../../../Images/jeo.jpg";
 import Tower from "../../../Images/twintower.jpg";
@@ -10,11 +11,16 @@ const HeroSection = () => {
         <Col span={16}>
           <div className="left-part">
             <div className="left-insideContent">
-              <img style={{ width: "730px" }} src={Jeo} alt="" />
-              <h1 style={{ textAlign: "center" }}>
-                G-7 Countries Agree To Infrastructure Project Rivaling China’s
-                ‘Belt And Road’
-              </h1>
+              <Link to="/single-post">
+                <img style={{ width: "730px" }} src={Jeo} alt="" />
+              </Link>
+
+              <Link to="/single-post">
+                <h1 style={{ textAlign: "center" }}>
+                  G-7 Countries Agree To Infrastructure Project Rivaling China’s
+                  ‘Belt And Road’
+                </h1>
+              </Link>
               <div style={{ textAlign: "center" }}>
                 <small>
                   By <span style={{ fontWeight: "bold" }}>Graison Dangor</span>{" "}

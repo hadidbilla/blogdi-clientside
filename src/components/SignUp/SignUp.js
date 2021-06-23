@@ -27,7 +27,12 @@ function SignUp() {
   const { form } = Form.useForm();
 
   const onFinish = (values) => {
-    console.log("Received values of form: ", values);
+    const signUpData = { ...values };
+    fetch("https://blogdi.pythonanywhere.com/api/blog/signup/", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(signUpData),
+    });
   };
 
   return (

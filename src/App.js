@@ -32,6 +32,7 @@ function App() {
             <Route exact path="/profile" component={Profile} />
             <Route exact path="/single-post" component={SinglePost} />
             <Route exact path="/reset-password" component={ResetPassword} />
+            <Route exact path="/home" component={Home} />
             <Route exact path="/" component={Home} />
           </Switch>
           <Footer />

@@ -55,12 +55,13 @@ a {
 .customerCSS .ant-popover-inner {
   background-color: black;
   border-radius: 10px;
+  color: white;
 }
 .customerCSS
   .ant-popover-arrow
   .popover-arrow-outer-color
   .ant-popover-arrow-content {
-  background-color: black;
+  /* background-color: black; */
 }
 /* ================================= 
   Media Queries

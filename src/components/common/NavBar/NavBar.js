@@ -11,22 +11,62 @@ import { Avatar } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import Hadid from "../../../Images/hb.jpg";
 import { Popover } from "antd";
+import { Link } from "react-router-dom";
 const NavBar = () => {
   const text = (
-    <span style={{ background: "black", color: "white" }}>Title</span>
+    <Link to="/profile" style={{ color: "white", fontSize: "20px" }}>
+      Hi, Hadid
+    </Link>
   );
   const content = (
-    <div className="popHover">
-      <p>Content</p>
-      <p>Content</p>
+    <div style={{ color: "white" }} className="popHover">
+      <Link
+        style={{ fontSize: "17px", color: "white", paddingTop: "10px" }}
+        to="/profile"
+      >
+        Profile
+      </Link>
+      <Link
+        style={{
+          fontSize: "17px",
+          color: "white",
+          display: "block",
+          paddingTop: "10px",
+        }}
+        to="/contact"
+      >
+        Contact
+      </Link>
+      <Link
+        style={{
+          fontSize: "17px",
+          color: "white",
+          display: "block",
+          paddingTop: "10px",
+        }}
+        to="/"
+      >
+        Help
+      </Link>
+      <Link
+        style={{
+          fontSize: "17px",
+          color: "white",
+          display: "block",
+          paddingTop: "10px",
+        }}
+        to="/signin"
+      >
+        SignIn
+      </Link>
     </div>
   );
   return (
     <header class="header">
       <h1 class="top-icon">
-        <a href="#">
+        <Link to="/home">
           <img style={{ width: "100px", height: "50px" }} src={BlogDi} alt="" />
-        </a>
+        </Link>
       </h1>
       <ul class="main-nav">
         <li>

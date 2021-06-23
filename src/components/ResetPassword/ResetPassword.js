@@ -7,6 +7,16 @@ const { Content } = Layout;
 const ResetPassword = () => {
   const resetRequestSubmit = (values) => {
     console.log(values);
+    fetch(
+      "https://blogdi.pythonanywhere.com/doc/api/blog/request-reset-password",
+      {
+        method: "POST",
+        header: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values),
+      }
+    );
   };
   return (
     <div className="pass-reset">
@@ -52,10 +62,10 @@ const ResetPassword = () => {
               </Col>
             </Row>
           </Form>
-          <p style={{ margin: "32px 0 0 0", textAlign: "center" }}>
+          {/* <p style={{ margin: "32px 0 0 0", textAlign: "center" }}>
             Go to login page? <Link to="/login">Login</Link>, Create new
             account? <Link to="/signup">Register</Link>
-          </p>
+          </p> */}
         </Content>
       </Layout>
     </div>
