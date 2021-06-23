@@ -1,0 +1,29 @@
+.post-parson-details {
+  display: flex;
+}
+.post-title {
+  width: 50%;
+  margin: 0px auto;
+  max-width: 1150px;
+}
+.post-page-btn {
+  background-color: #848585;
+  padding: 5px 10px;
+  border-radius: 50px;
+  border: 0px;
+  color: #fff;
+}
+.like-and-comt {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+.btn-like {
+  border: 0px;
+  background: transparent;
+  margin-right: 10px;
+}
+.btn-like:hover {
+  color: grey;
+  cursor: pointer;
+}
