@@ -5,9 +5,7 @@ const LeftSide = () => {
   return (
     <div className="lift-part">
       <div className="">
-        <button className="left-btn">
-          <h1>Account Setting</h1>
-        </button>
+        <h1>Account Setting</h1>
       </div>
     </div>
   );
