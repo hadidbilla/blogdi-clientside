@@ -5,9 +5,12 @@ import "./SignIn.css";
 import { Link } from "react-router-dom";
 function SignIn() {
   const [signInUser, setSignInUser] = useState({});
+  const [form] = Form.useForm();
   const onFinish = (values) => {
-    console.log("Received values of form: ", values);
-    const signInData = { ...values };
+    // console.log("Received values of form: ", values);
+    const signInData = { email: values.email, password: values.password };
+    //console.log(signInData);
+    form.resetFields();
     fetch("https://blogdi.pythonanywhere.com/doc/api/blog/login", {
       method: "POST",
       header: {
@@ -24,7 +27,7 @@ function SignIn() {
         //   cookies.set("currentUser", signinData, { path: "/" });
         //   return (window.location.href = "/admin");
         // } else {
-        //   // console.log("success", signupData);
+        // console.log("success", signupData);
         //   message.error(signinData.detail);
         // }
       })
@@ -36,6 +39,7 @@ function SignIn() {
     <div className="signin-from">
       <div className="from-content">
         <Form
+          form={form}
           name="normal_login"
           className="login-form"
           initialValues={{
@@ -44,17 +48,21 @@ function SignIn() {
           onFinish={onFinish}
         >
           <Form.Item
-            name="username"
+            name="email"
             rules={[
               {
                 required: true,
-                message: "Please input your Username!",
+                message: "Please input your Email!",
+              },
+              {
+                type: "email",
+                message: "The input is not valid E-mail!",
               },
             ]}
           >
             <Input
               prefix={<UserOutlined className="site-form-item-icon" />}
-              placeholder="Username"
+              placeholder="Email"
             />
           </Form.Item>
           <Form.Item
