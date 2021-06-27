@@ -9,9 +9,9 @@ function SignIn() {
   const onFinish = (values) => {
     // console.log("Received values of form: ", values);
     const signInData = { email: values.email, password: values.password };
-    //console.log(signInData);
+    console.log(signInData);
     form.resetFields();
-    fetch("https://blogdi.pythonanywhere.com/doc/api/blog/login", {
+    fetch("https://blogdi.pythonanywhere.com/api/blog/login", {
       method: "POST",
       header: {
         "Content-Type": "application/json",

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "antd/dist/antd.css";
 import "./SignUp.css";
 
@@ -25,7 +25,16 @@ const formItemLayout = {
 };
 function SignUp() {
   const { form } = Form.useForm();
-
+  const [stage, setStage] = useState();
+  const [goals, setGoals] = useState();
+  useEffect(() => {
+    fetch("https://blogdi.pythonanywhere.com/api/blog/stages/")
+      .then((response) => response.json())
+      .then((data) => setStage(data));
+    fetch("https://blogdi.pythonanywhere.com/api/blog/goals/")
+      .then((response) => response.json())
+      .then((data) => setGoals(data));
+  }, []);
   const onFinish = (values) => {
     const signUpData = { ...values };
     fetch("https://blogdi.pythonanywhere.com/api/blog/signup/", {
@@ -34,7 +43,6 @@ function SignUp() {
       body: JSON.stringify(signUpData),
     });
   };
-
   return (
     <Card className="site-card-border-less-wrapper">
       <Card type="inner" title="Sign Up">
@@ -129,9 +137,13 @@ function SignUp() {
                 ]}
               >
                 <Select placeholder="select your stage">
-                  <Option value=""></Option>
-                  <Option value=""></Option>
-                  <Option value=""></Option>
+                  {stage?.map((data) => {
+                    return (
+                      <Option key={data.title} value={data.title}>
+                        {data.title}
+                      </Option>
+                    );
+                  })}
                 </Select>
               </Form.Item>
 
@@ -230,9 +242,13 @@ function SignUp() {
                 ]}
               >
                 <Select placeholder="select your goal">
-                  <Option value=""></Option>
-                  <Option value=""></Option>
-                  <Option value=""></Option>
+                  {goals?.map((data) => {
+                    return (
+                      <Option key={data.title} value={data.title}>
+                        {data.title}
+                      </Option>
+                    );
+                  })}
                 </Select>
               </Form.Item>
 

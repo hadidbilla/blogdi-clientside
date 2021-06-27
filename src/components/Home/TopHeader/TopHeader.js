@@ -1,27 +1,34 @@
 import React, { useState } from "react";
 import { Row, Col } from "antd";
 import "./TopHeader.css";
-
+import { Link, useHistory } from "react-router-dom";
 const TopHeader = () => {
+  const history = useHistory();
+  const handleClick = (id) => {
+    history.push(`/single-post/${id}`);
+  };
   const [BreakingNews, setBreakingNews] = useState([
     {
+      id: "1",
       title:
         "Basketball Star James Harden Is The Newest Member Of The Saks Board",
     },
     {
+      id: "2",
       title:
         "Basketball Star James Harden Is The Newest Member Of The Saks Board",
     },
     {
+      id: "3",
       title:
         "Basketball Star James Harden Is The Newest Member Of The Saks Board",
     },
     {
+      id: "4",
       title:
         "Basketball Star James Harden Is The Newest Member Of The Saks Board",
     },
   ]);
-  console.log(BreakingNews);
   return (
     <div>
       <h4 className="breaking">
@@ -31,10 +38,12 @@ const TopHeader = () => {
         {BreakingNews.map((news) => {
           return (
             <Col span={(6, 6)}>
-              <div className="top-news">
-                <small style={{ color: "#737373" }}>7 hours ago</small>
-                <h4>{news.title}</h4>
-              </div>
+              <Link onClick={() => handleClick(news.id)}>
+                <div className="top-news">
+                  <small style={{ color: "#737373" }}>7 hours ago</small>
+                  <h4>{news.title}</h4>
+                </div>
+              </Link>
             </Col>
           );
         })}

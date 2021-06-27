@@ -31,7 +31,7 @@ function App() {
             <Route exact path="/signin" component={SignIn} />
             <Route exact path="/contact" component={Contact} />
             <Route exact path="/profile" component={Profile} />
-            <Route exact path="/single-post" component={SinglePost} />
+            <Route exact path="/single-post/:id" component={SinglePost} />
             <Route exact path="/post" component={Post} />
             <Route exact path="/reset-password" component={ResetPassword} />
             <Route exact path="/home" component={Home} />
