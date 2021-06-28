@@ -8,18 +8,23 @@ const HeroSection = () => {
   return (
     <div className="hero-section">
       <Row gutter={[20]}>
-        <Col span={16}>
+        <Col xs={{ span: 24 }} md={{ span: 24 }} lg={{ span: 12 }}>
           <div className="left-part">
             <div className="left-insideContent">
               <Link to="/single-post">
-                <img style={{ width: "730px" }} src={Jeo} alt="" />
+                <img
+                  className="img-fluid"
+                  style={{ width: "730px" }}
+                  src={Jeo}
+                  alt=""
+                />
               </Link>
 
               <Link to="/single-post">
-                <h1 style={{ textAlign: "center" }}>
+                <h3 style={{ textAlign: "center" }}>
                   G-7 Countries Agree To Infrastructure Project Rivaling China’s
                   ‘Belt And Road’
-                </h1>
+                </h3>
               </Link>
               <div style={{ textAlign: "center" }}>
                 <small>
@@ -27,7 +32,7 @@ const HeroSection = () => {
                   Forbes Staff
                 </small>
               </div>
-              <h3
+              <h4
                 style={{
                   textAlign: "center",
                   marginTop: "10px",
@@ -38,33 +43,35 @@ const HeroSection = () => {
                 Leaders of the Group of Seven countries will undertake a
                 U.S.-led infrastructure project for developing nations to rival
                 China’s Belt and Road Initiative.
-              </h3>
+              </h4>
             </div>
           </div>
           <div className="bottom">
             <Row gutter={[24, 16]}>
-              <Col span={12}>
+              <Col xs={{ span: 24 }} md={{ span: 24 }} lg={{ span: 12 }}>
                 <div className="bottom-content">
                   <img
+                    className="img-fluid"
                     style={{ height: "200px", width: "350px" }}
                     src={Tower}
                     alt=""
                   />
-                  <h2>Full List: Malaysia’s Richest 2021</h2>
+                  <h4>Full List: Malaysia’s Richest 2021</h4>
                   <p>
                     The nation’s richest saw their combined wealth rise 14% to
                     nearly $90 billion.
                   </p>
                 </div>
               </Col>
-              <Col span={12}>
+              <Col xs={{ span: 24 }} md={{ span: 24 }} lg={{ span: 12 }}>
                 <div className="bottom-content">
                   <img
+                    className="img-fluid"
                     style={{ height: "200px", width: "350px" }}
                     src={Tower}
                     alt=""
                   />
-                  <h2>Full List: Malaysia’s Richest 2021</h2>
+                  <h4>Full List: Malaysia’s Richest 2021</h4>
                   <p>
                     The nation’s richest saw their combined wealth rise 14% to
                     nearly $90 billion.
@@ -74,38 +81,38 @@ const HeroSection = () => {
             </Row>
           </div>
         </Col>
-        <Col span={8}>
+        <Col xs={{ span: 24 }} md={{ span: 24 }} lg={{ span: 12 }}>
           <div className="right-part">
-            <h4 className="trends-text">Trending</h4>
+            <h6 className="trends-text">Trending</h6>
             <div className="right-content">
-              <h3>
+              <h6>
                 SoftBank-Backed Coupang, The Amazon Of South Korea, Expands Into
                 Japan
-              </h3>
+              </h6>
             </div>
             <div className="right-content">
-              <h3>
+              <h6>
                 SoftBank-Backed Coupang, The Amazon Of South Korea, Expands Into
                 Japan
-              </h3>
+              </h6>
             </div>
             <div className="right-content">
-              <h3>
+              <h6>
                 SoftBank-Backed Coupang, The Amazon Of South Korea, Expands Into
                 Japan
-              </h3>
+              </h6>
             </div>
             <div className="right-content">
-              <h3>
+              <h6>
                 SoftBank-Backed Coupang, The Amazon Of South Korea, Expands Into
                 Japan
-              </h3>
+              </h6>
             </div>
             <div className="right-content">
-              <h3>
+              <h6>
                 SoftBank-Backed Coupang, The Amazon Of South Korea, Expands Into
                 Japan
-              </h3>
+              </h6>
             </div>
           </div>
         </Col>

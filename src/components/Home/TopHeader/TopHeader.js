@@ -31,17 +31,17 @@ const TopHeader = () => {
   ]);
   return (
     <div>
-      <h4 className="breaking">
+      <h6 className="breaking">
         <a href="">Top News</a>
-      </h4>
-      <Row gutter={[16]}>
+      </h6>
+      <Row gutter={[16, 16]}>
         {BreakingNews.map((news) => {
           return (
-            <Col span={(6, 6)}>
+            <Col xs={{ span: 24 }} md={{ span: 12 }} lg={{ span: 6 }}>
               <Link onClick={() => handleClick(news.id)}>
                 <div className="top-news">
                   <small style={{ color: "#737373" }}>7 hours ago</small>
-                  <h4>{news.title}</h4>
+                  <h6>{news.title}</h6>
                 </div>
               </Link>
             </Col>

@@ -2,7 +2,7 @@ import React, { Suspense } from "react";
 import "antd/dist/antd.css";
 import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import NavBar from "./components/common/NavBar/NavBar";
+import TopBar from "./components/common/TopBar/TopBar";
 import Footer from "./components/common/Footer/Footer";
 const Home = React.lazy(() => import("./components/Home/Home/Home"));
 const SignUp = React.lazy(() => import("./components/SignUp/SignUp"));
@@ -24,7 +24,7 @@ function App() {
     <div>
       <Suspense fallback={"loading....."}>
         <Router>
-          <NavBar />
+          <TopBar />
           <Switch>
             <Route exact path="/signup" component={SignUp} />
             <Route exact path="/change-password" component={ChangePassword} />

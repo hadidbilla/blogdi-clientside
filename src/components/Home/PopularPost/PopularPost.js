@@ -15,7 +15,10 @@ const PopularPost = () => {
       {popularPost?.map((data) => {
         return (
           <div>
-            <img src={data.author__profile_picture} alt="" />
+            <img
+              src={`https://blogdi.pythonanywhere.com/media/${data.author__profile_picture}`}
+              alt=""
+            />
           </div>
         );
       })}
