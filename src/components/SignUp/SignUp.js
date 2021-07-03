@@ -27,6 +27,8 @@ function SignUp() {
   const { form } = Form.useForm();
   const [stage, setStage] = useState();
   const [goals, setGoals] = useState();
+  const [industries, setIndustries] = useState();
+  const [interests, setInterests] = useState();
   useEffect(() => {
     fetch("https://blogdi.pythonanywhere.com/api/blog/stages/")
       .then((response) => response.json())
@@ -34,27 +36,45 @@ function SignUp() {
     fetch("https://blogdi.pythonanywhere.com/api/blog/goals/")
       .then((response) => response.json())
       .then((data) => setGoals(data));
+    fetch("https://blogdi.pythonanywhere.com/api/blog/industries")
+      .then((response) => response.json())
+      .then((data) => {
+        setIndustries(data);
+      });
+    fetch("https://blogdi.pythonanywhere.com/api/blog/interests")
+      .then((response) => response.json())
+      .then((data) => {
+        setInterests(data);
+      });
   }, []);
+
   const onFinish = (values) => {
     const signUpData = { ...values };
+    console.log(signUpData);
     fetch("https://blogdi.pythonanywhere.com/api/blog/signup/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(signUpData),
-    });
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
   };
   return (
     <Card className="site-card-border-less-wrapper">
       <Card type="inner" title="Sign Up">
-        <Row>
-          <Col span={12}>
-            <Form
-              {...formItemLayout}
-              form={form}
-              name="register"
-              onFinish={onFinish}
-              scrollToFirstError
-            >
+        <Form
+          initialValues={{
+            remember: true,
+          }}
+          {...formItemLayout}
+          form={form}
+          name="register"
+          onFinish={onFinish}
+        >
+          <Row gutter={[16, 16]}>
+            <Col xs={{ span: 24 }} md={{ span: 12 }} lg={{ span: 12 }}>
               <Form.Item
                 name="title"
                 label="Title"
@@ -108,9 +128,18 @@ function SignUp() {
                 ]}
               >
                 <Select placeholder="select your industry">
-                  <Option value=""></Option>
-                  <Option value=""></Option>
-                  <Option value=""></Option>
+                  {industries
+                    ?.filter(
+                      (industry) =>
+                        industry.title !== "Interest with create date"
+                    )
+                    .map((industry) => {
+                      return (
+                        <Option key={industry.title} value={industry.title}>
+                          {industry.title}
+                        </Option>
+                      );
+                    })}
                 </Select>
               </Form.Item>
               <Form.Item
@@ -146,30 +175,24 @@ function SignUp() {
                   })}
                 </Select>
               </Form.Item>
-
               <Form.Item
-                name="password"
-                label="Password"
+                label="New Password"
+                name="newPassword"
                 rules={[
                   {
                     required: true,
-                    message: "Please input your password!",
+                    message: "Password cannot be empty",
+                  },
+                  {
+                    min: 6,
+                    message: "Password cannot be less than 4 characters",
                   },
                 ]}
-                hasFeedback
               >
                 <Input.Password />
               </Form.Item>
-            </Form>
-          </Col>
-          <Col span={12}>
-            <Form
-              {...formItemLayout}
-              form={form}
-              name="register"
-              onFinish={onFinish}
-              scrollToFirstError
-            >
+            </Col>
+            <Col xs={{ span: 24 }} md={{ span: 12 }} lg={{ span: 12 }}>
               <Form.Item
                 name="site title"
                 label="Site Title"
@@ -210,9 +233,8 @@ function SignUp() {
                 ]}
               >
                 <Select placeholder="select your Country">
-                  <Option value=""></Option>
-                  <Option value=""></Option>
-                  <Option value=""></Option>
+                  <Option value="Bangladesh">Bangladesh</Option>
+                  <Option value="United Kingdom">United Kingdom</Option>
                 </Select>
               </Form.Item>
               <Form.Item
@@ -226,9 +248,15 @@ function SignUp() {
                 ]}
               >
                 <Select placeholder="select your interest">
-                  <Option value=""></Option>
-                  <Option value=""></Option>
-                  <Option value=""></Option>
+                  {interests
+                    ?.filter((interest) => interest.title !== "Test")
+                    .map((interest) => {
+                      return (
+                        <Option key={interest.title} value={interest.title}>
+                          {interest.title}
+                        </Option>
+                      );
+                    })}
                 </Select>
               </Form.Item>
               <Form.Item
@@ -251,7 +279,6 @@ function SignUp() {
                   })}
                 </Select>
               </Form.Item>
-
               <Form.Item
                 name="email"
                 label="E-mail"
@@ -268,27 +295,22 @@ function SignUp() {
               >
                 <Input />
               </Form.Item>
-
               <Form.Item
-                name="confirm"
                 label="Confirm Password"
+                name="confirmPassword"
                 dependencies={["password"]}
-                hasFeedback
                 rules={[
                   {
                     required: true,
-                    message: "Please confirm your password!",
+                    message: "Please input your password again!",
                   },
                   ({ getFieldValue }) => ({
-                    validator(_, value) {
-                      if (!value || getFieldValue("password") === value) {
+                    validator(rule, value) {
+                      if (!value || getFieldValue("newPassword") === value) {
                         return Promise.resolve();
                       }
-
                       return Promise.reject(
-                        new Error(
-                          "The two passwords that you entered do not match!"
-                        )
+                        "The two passwords that you entered do not match!"
                       );
                     },
                   }),
@@ -296,18 +318,24 @@ function SignUp() {
               >
                 <Input.Password />
               </Form.Item>
-              <Form.Item>
-                <Button
-                  type="primary"
-                  htmlType="submit"
-                  className="login-form-button"
-                >
-                  Register
-                </Button>
-              </Form.Item>
-            </Form>
-          </Col>
-        </Row>
+            </Col>
+          </Row>
+
+          <Form.Item
+            wrapperCol={{
+              offset: 12,
+              span: 16,
+            }}
+          >
+            <Button
+              type="primary"
+              htmlType="submit"
+              className="login-form-button"
+            >
+              Register
+            </Button>
+          </Form.Item>
+        </Form>
       </Card>
     </Card>
   );

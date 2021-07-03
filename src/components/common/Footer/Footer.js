@@ -13,7 +13,12 @@ function Footer() {
   return (
     <div className="main-footer">
       <Row>
-        <Col span={6} style={{ padding: "10px 20px" }}>
+        <Col
+          xs={{ span: 24 }}
+          sm={{ span: 24 }}
+          lg={{ span: 6 }}
+          style={{ padding: "10px 20px" }}
+        >
           <h2 style={{ marginLeft: "0px" }} className="footer-header">
             Blogdi
           </h2>
@@ -23,7 +28,12 @@ function Footer() {
           </p>
         </Col>
         {/* Column2 */}
-        <Col span={6} style={{ padding: "10px 20px" }}>
+        <Col
+          xs={{ span: 24 }}
+          sm={{ span: 12 }}
+          lg={{ span: 6 }}
+          style={{ padding: "10px 20px" }}
+        >
           <h2 style={{ marginLeft: "0px" }} className="footer-header">
             Shop
           </h2>
@@ -46,7 +56,12 @@ function Footer() {
           </ui>
         </Col>
         {/* Column2 */}
-        <Col span={6} style={{ padding: "10px 20px" }}>
+        <Col
+          xs={{ span: 24 }}
+          sm={{ span: 12 }}
+          lg={{ span: 6 }}
+          style={{ padding: "10px 20px" }}
+        >
           <h2 style={{ marginLeft: "0px" }} className="footer-header">
             Press
           </h2>

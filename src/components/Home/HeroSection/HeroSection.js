@@ -5,6 +5,9 @@ import "./HeroSection.css";
 import Jeo from "../../../Images/jeo.jpg";
 import Tower from "../../../Images/twintower.jpg";
 const HeroSection = () => {
+  const handleClick = (data) => {
+    console.log(data);
+  };
   return (
     <div className="hero-section">
       <Row gutter={[20]}>
@@ -114,6 +117,64 @@ const HeroSection = () => {
                 Japan
               </h6>
             </div>
+          </div>
+          <div className="category ml-5 mt-5">
+            <Row gutter={[0, 16]}>
+              <Col span={8}>
+                {" "}
+                <button
+                  onClick={() => handleClick("technology")}
+                  className="ctg-btn"
+                >
+                  Technology
+                </button>{" "}
+              </Col>
+              <Col span={8}>
+                <button
+                  onClick={() => handleClick("money")}
+                  className="ctg-btn"
+                >
+                  Money
+                </button>{" "}
+              </Col>
+              <Col span={8}>
+                <button
+                  onClick={() => handleClick("business")}
+                  className="ctg-btn"
+                >
+                  Business
+                </button>
+              </Col>
+              <Col span={8}>
+                <button
+                  onClick={() => handleClick("productivity")}
+                  className="ctg-btn"
+                >
+                  Productivity
+                </button>
+              </Col>
+              <Col span={12}>
+                <button
+                  onClick={() => handleClick("mindfulness")}
+                  className="ctg-btn"
+                >
+                  Mindfulness
+                </button>
+              </Col>
+              <Col span={8}>
+                <button
+                  onClick={() => handleClick("psychology")}
+                  className="ctg-btn"
+                >
+                  Psychology
+                </button>
+              </Col>
+              <Col span={8}>
+                <button onClick={() => handleClick("art")} className="ctg-btn">
+                  Art
+                </button>
+              </Col>
+            </Row>
           </div>
         </Col>
       </Row>
